@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<h1>Студенты нашей школы</h1>
+<a href="/add_student">Добавить студента</a>
+<table class="table">
+  <thead>
+    <tr>
+        {%for header in students.columns %}
+      <th scope="col">{{ header }}</th>
+        {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+  {% for student in students.values %}
+    <tr>
+        {% for line in student %}
+      <td>{{ line }}</td>
+        {% endfor %}
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
